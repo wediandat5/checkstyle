@@ -763,6 +763,8 @@ public class PackageObjectFactory implements ModuleFactory {
                 BASE_PACKAGE + ".checks.javadoc.JavadocThrowsOrderCheck");
         NAME_TO_FULL_MODULE_NAME.put("JavadocTypeCheck",
                 BASE_PACKAGE + ".checks.javadoc.JavadocTypeCheck");
+        NAME_TO_FULL_MODULE_NAME.put("JavadocUtilizingTrailingSpaceCheck",
+                BASE_PACKAGE + ".checks.javadoc.JavadocUtilizingTrailingSpaceCheck");
         NAME_TO_FULL_MODULE_NAME.put("JavadocVariableCheck",
                 BASE_PACKAGE + ".checks.javadoc.JavadocVariableCheck");
         NAME_TO_FULL_MODULE_NAME.put("MissingJavadocMethodCheck",
@@ -933,6 +935,8 @@ public class PackageObjectFactory implements ModuleFactory {
                 BASE_PACKAGE + ".checks.whitespace.EmptyForIteratorPadCheck");
         NAME_TO_FULL_MODULE_NAME.put("EmptyLineSeparatorCheck",
                 BASE_PACKAGE + ".checks.whitespace.EmptyLineSeparatorCheck");
+        NAME_TO_FULL_MODULE_NAME.put("EmptyLineWrappingInBlockCheck",
+                BASE_PACKAGE + ".checks.whitespace.EmptyLineWrappingInBlockCheck");
         NAME_TO_FULL_MODULE_NAME.put("FileTabCharacterCheck",
                 BASE_PACKAGE + ".checks.whitespace.FileTabCharacterCheck");
         NAME_TO_FULL_MODULE_NAME.put("GenericWhitespaceCheck",

@@ -743,11 +743,44 @@
   <checkerFrameworkError unstable="false">
     <fileName>src/main/java/com/puppycrawl/tools/checkstyle/SarifLogger.java</fileName>
     <specifier>argument</specifier>
+    <message>incompatible argument for parameter fragment of URI constructor.</message>
+    <lineContent>return &quot;file:&quot; + new URI(null, null, normalized, null).toASCIIString();</lineContent>
+    <details>
+      found   : null (NullType)
+      required: @Initialized @NonNull String
+    </details>
+  </checkerFrameworkError>
+
+  <checkerFrameworkError unstable="false">
+    <fileName>src/main/java/com/puppycrawl/tools/checkstyle/SarifLogger.java</fileName>
+    <specifier>argument</specifier>
+    <message>incompatible argument for parameter host of URI constructor.</message>
+    <lineContent>return &quot;file:&quot; + new URI(null, null, normalized, null).toASCIIString();</lineContent>
+    <details>
+      found   : null (NullType)
+      required: @Initialized @NonNull String
+    </details>
+  </checkerFrameworkError>
+
+  <checkerFrameworkError unstable="false">
+    <fileName>src/main/java/com/puppycrawl/tools/checkstyle/SarifLogger.java</fileName>
+    <specifier>argument</specifier>
     <message>incompatible argument for parameter loader of ResourceBundle.getBundle.</message>
     <lineContent>moduleClass.getClassLoader()</lineContent>
     <details>
       found   : @Initialized @Nullable ClassLoader
       required: @Initialized @NonNull ClassLoader
+    </details>
+  </checkerFrameworkError>
+
+  <checkerFrameworkError unstable="false">
+    <fileName>src/main/java/com/puppycrawl/tools/checkstyle/SarifLogger.java</fileName>
+    <specifier>argument</specifier>
+    <message>incompatible argument for parameter scheme of URI constructor.</message>
+    <lineContent>return &quot;file:&quot; + new URI(null, null, normalized, null).toASCIIString();</lineContent>
+    <details>
+      found   : null (NullType)
+      required: @Initialized @NonNull String
     </details>
   </checkerFrameworkError>
 
@@ -2895,6 +2928,17 @@
   <checkerFrameworkError unstable="false">
     <fileName>src/main/java/com/puppycrawl/tools/checkstyle/checks/coding/RequireThisCheck.java</fileName>
     <specifier>argument</specifier>
+    <message>incompatible argument for parameter frame of RequireThisCheck.createBlockFrame.</message>
+    <lineContent>case TokenTypes.SLIST -&gt; frameStack.addFirst(createBlockFrame(frame, ast));</lineContent>
+    <details>
+      found   : @Initialized @Nullable AbstractFrame
+      required: @Initialized @NonNull AbstractFrame
+    </details>
+  </checkerFrameworkError>
+
+  <checkerFrameworkError unstable="false">
+    <fileName>src/main/java/com/puppycrawl/tools/checkstyle/checks/coding/RequireThisCheck.java</fileName>
+    <specifier>argument</specifier>
     <message>incompatible argument for parameter frame of RequireThisCheck.findFrame.</message>
     <lineContent>frame = findFrame(frame, name, lookMode);</lineContent>
     <details>
@@ -3039,18 +3083,7 @@
     <fileName>src/main/java/com/puppycrawl/tools/checkstyle/checks/coding/RequireThisCheck.java</fileName>
     <specifier>argument</specifier>
     <message>incompatible argument for parameter parent of AnonymousClassFrame constructor.</message>
-    <lineContent>frameStack.addFirst(new AnonymousClassFrame(frame, ast.toString()));</lineContent>
-    <details>
-      found   : @Initialized @Nullable AbstractFrame
-      required: @Initialized @NonNull AbstractFrame
-    </details>
-  </checkerFrameworkError>
-
-  <checkerFrameworkError unstable="false">
-    <fileName>src/main/java/com/puppycrawl/tools/checkstyle/checks/coding/RequireThisCheck.java</fileName>
-    <specifier>argument</specifier>
-    <message>incompatible argument for parameter parent of BlockFrame constructor.</message>
-    <lineContent>case TokenTypes.SLIST -&gt; frameStack.addFirst(new BlockFrame(frame, ast));</lineContent>
+    <lineContent>frameStack.addFirst(new AnonymousClassFrame(frame, ast));</lineContent>
     <details>
       found   : @Initialized @Nullable AbstractFrame
       required: @Initialized @NonNull AbstractFrame
@@ -3155,6 +3188,13 @@
     <fileName>src/main/java/com/puppycrawl/tools/checkstyle/checks/coding/RequireThisCheck.java</fileName>
     <specifier>dereference.of.nullable</specifier>
     <message>dereference of possibly-null reference frame</message>
+    <lineContent>frame = frame.getParent();</lineContent>
+  </checkerFrameworkError>
+
+  <checkerFrameworkError unstable="false">
+    <fileName>src/main/java/com/puppycrawl/tools/checkstyle/checks/coding/RequireThisCheck.java</fileName>
+    <specifier>dereference.of.nullable</specifier>
+    <message>dereference of possibly-null reference frame</message>
     <lineContent>frame.addIdent(parameterIdent);</lineContent>
   </checkerFrameworkError>
 
@@ -3198,6 +3238,20 @@
     <specifier>initialization.fields.uninitialized</specifier>
     <message>the constructor does not initialize fields: frames</message>
     <lineContent>public RequireThisCheck() {</lineContent>
+  </checkerFrameworkError>
+
+  <checkerFrameworkError unstable="false">
+    <fileName>src/main/java/com/puppycrawl/tools/checkstyle/checks/coding/RequireThisCheck.java</fileName>
+    <specifier>not.interned</specifier>
+    <message>attempting to use a non-@Interned comparison operand</message>
+    <lineContent>while (frame != declaringFrame) {</lineContent>
+  </checkerFrameworkError>
+
+  <checkerFrameworkError unstable="false">
+    <fileName>src/main/java/com/puppycrawl/tools/checkstyle/checks/coding/RequireThisCheck.java</fileName>
+    <specifier>not.interned</specifier>
+    <message>attempting to use a non-@Interned comparison operand</message>
+    <lineContent>while (frame != declaringFrame) {</lineContent>
   </checkerFrameworkError>
 
   <checkerFrameworkError unstable="false">
@@ -6233,6 +6287,56 @@
   </checkerFrameworkError>
 
   <checkerFrameworkError unstable="false">
+    <fileName>src/main/java/com/puppycrawl/tools/checkstyle/checks/javadoc/JavadocUtilizingTrailingSpaceCheck.java</fileName>
+    <specifier>assignment</specifier>
+    <message>incompatible types in assignment.</message>
+    <lineContent>skipRoot = null;</lineContent>
+    <details>
+      found   : null (NullType)
+      required: @Initialized @NonNull DetailNode
+    </details>
+  </checkerFrameworkError>
+
+  <checkerFrameworkError unstable="false">
+    <fileName>src/main/java/com/puppycrawl/tools/checkstyle/checks/javadoc/JavadocUtilizingTrailingSpaceCheck.java</fileName>
+    <specifier>assignment</specifier>
+    <message>incompatible types in assignment.</message>
+    <lineContent>currentLine = null;</lineContent>
+    <details>
+      found   : null (NullType)
+      required: @Initialized @NonNull JavadocLine
+    </details>
+  </checkerFrameworkError>
+
+  <checkerFrameworkError unstable="false">
+    <fileName>src/main/java/com/puppycrawl/tools/checkstyle/checks/javadoc/JavadocUtilizingTrailingSpaceCheck.java</fileName>
+    <specifier>initialization.fields.uninitialized</specifier>
+    <message>the constructor does not initialize fields: currentLine, skipRoot</message>
+    <lineContent>public JavadocUtilizingTrailingSpaceCheck() {</lineContent>
+  </checkerFrameworkError>
+
+  <checkerFrameworkError unstable="false">
+    <fileName>src/main/java/com/puppycrawl/tools/checkstyle/checks/javadoc/JavadocUtilizingTrailingSpaceCheck.java</fileName>
+    <specifier>initialization.fields.uninitialized</specifier>
+    <message>the constructor does not initialize fields: firstNode, firstWord</message>
+    <lineContent>private JavadocLine(int lineNumber) {</lineContent>
+  </checkerFrameworkError>
+
+  <checkerFrameworkError unstable="false">
+    <fileName>src/main/java/com/puppycrawl/tools/checkstyle/checks/javadoc/JavadocUtilizingTrailingSpaceCheck.java</fileName>
+    <specifier>not.interned</specifier>
+    <message>attempting to use a non-@Interned comparison operand</message>
+    <lineContent>if (ast == skipRoot) {</lineContent>
+  </checkerFrameworkError>
+
+  <checkerFrameworkError unstable="false">
+    <fileName>src/main/java/com/puppycrawl/tools/checkstyle/checks/javadoc/JavadocUtilizingTrailingSpaceCheck.java</fileName>
+    <specifier>not.interned</specifier>
+    <message>attempting to use a non-@Interned comparison operand</message>
+    <lineContent>if (ast == skipRoot) {</lineContent>
+  </checkerFrameworkError>
+
+  <checkerFrameworkError unstable="false">
     <fileName>src/main/java/com/puppycrawl/tools/checkstyle/checks/javadoc/JavadocVariableCheck.java</fileName>
     <specifier>initialization.fields.uninitialized</specifier>
     <message>the constructor does not initialize fields: ignoreNamePattern</message>
@@ -6986,6 +7090,17 @@
     <specifier>dereference.of.nullable</specifier>
     <message>dereference of possibly-null reference token.findFirstToken(TokenTypes.TYPE)</message>
     <lineContent>for (DetailAST typeChild = token.findFirstToken(TokenTypes.TYPE).getLastChild();</lineContent>
+  </checkerFrameworkError>
+
+  <checkerFrameworkError unstable="false">
+    <fileName>src/main/java/com/puppycrawl/tools/checkstyle/checks/whitespace/EmptyLineWrappingInBlockCheck.java</fileName>
+    <specifier>return</specifier>
+    <message>incompatible types in return.</message>
+    <lineContent>return leftBrace;</lineContent>
+    <details>
+      type of expression: @Initialized @Nullable DetailAST
+      method return type: @Initialized @NonNull DetailAST
+    </details>
   </checkerFrameworkError>
 
   <checkerFrameworkError unstable="false">

@@ -29,8 +29,7 @@ import com.puppycrawl.tools.checkstyle.DetailAstImpl;
 import com.puppycrawl.tools.checkstyle.api.TokenTypes;
 import com.puppycrawl.tools.checkstyle.utils.CommonUtil;
 
-public class FinalLocalVariableCheckTest
-    extends AbstractModuleTestSupport {
+public class FinalLocalVariableCheckTest extends AbstractModuleTestSupport {
 
     @Override
     public String getPackageLocation() {
@@ -311,6 +310,34 @@ public class FinalLocalVariableCheckTest
         final String[] expected = CommonUtil.EMPTY_STRING_ARRAY;
         verifyWithInlineConfigParser(
                 getPath("InputFinalLocalVariableLeavingSlistToken.java"), expected);
+    }
+
+    @Test
+    public void testThrowScopes() throws Exception {
+        final String[] expected = {
+            "19:13: " + getCheckMessage(MSG_KEY, "value"),
+            "35:13: " + getCheckMessage(MSG_KEY, "value"),
+        };
+        verifyWithInlineConfigParser(getPath("InputFinalLocalVariableThrowScopes.java"), expected);
+    }
+
+    @Test
+    public void testThrow() throws Exception {
+        final String[] expected = {
+            "13:13: " + getCheckMessage(MSG_KEY, "value"),
+            "31:13: " + getCheckMessage(MSG_KEY, "value"),
+        };
+        verifyWithInlineConfigParser(getPath("InputFinalLocalVariableThrow.java"), expected);
+    }
+
+    @Test
+    public void testThrowBranches() throws Exception {
+        final String[] expected = {
+            "40:13: " + getCheckMessage(MSG_KEY, "value"),
+            "75:13: " + getCheckMessage(MSG_KEY, "value"),
+        };
+        verifyWithInlineConfigParser(
+                getPath("InputFinalLocalVariableThrowBranches.java"), expected);
     }
 
     @Test

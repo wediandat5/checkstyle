@@ -268,9 +268,7 @@ public final class InlineConfigParser {
      */
     private static final Set<String> SUPPRESSED_CHECKS = Set.of(
             "com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck",
-            "com.puppycrawl.tools.checkstyle.checks.coding.EqualsAvoidNullCheck",
             "com.puppycrawl.tools.checkstyle.checks.coding.ExplicitInitializationCheck",
-            "com.puppycrawl.tools.checkstyle.checks.coding.FallThroughCheck",
             "com.puppycrawl.tools.checkstyle.checks.coding.FinalLocalVariableCheck",
             "com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck",
             "com.puppycrawl.tools.checkstyle.checks.coding.ModifiedControlVariableCheck",
@@ -392,6 +390,8 @@ public final class InlineConfigParser {
                 "com.puppycrawl.tools.checkstyle.checks.metrics.CyclomaticComplexityCheck");
         MODULE_MAPPINGS.put("EmptyLineSeparator",
                 "com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheck");
+        MODULE_MAPPINGS.put("EmptyLineWrappingInBlock",
+                "com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineWrappingInBlockCheck");
         MODULE_MAPPINGS.put("LocalVariableName",
                 "com.puppycrawl.tools.checkstyle.checks.naming.LocalVariableNameCheck");
         MODULE_MAPPINGS.put("ModifierOrder",
@@ -836,16 +836,16 @@ public final class InlineConfigParser {
         if (value == null) {
             defaultValueAsString = NULL_STRING;
         }
-        else if (value instanceof String strValue) {
+        else if (value instanceof final String strValue) {
             defaultValueAsString = toStringForStringValue(strValue);
         }
         else if (value.getClass().isArray()) {
             defaultValueAsString = toStringConvertForArrayValue(value);
         }
-        else if (value instanceof BitSet set) {
+        else if (value instanceof final BitSet set) {
             defaultValueAsString = toStringForBitSetValue(set);
         }
-        else if (value instanceof Collection<?> values) {
+        else if (value instanceof final Collection<?> values) {
             defaultValueAsString = toStringForCollectionValue(values);
         }
         else {
