@@ -12,7 +12,7 @@
   <!-- Suppressions for resources -->
   <module name="SuppressionFilter">
     <property name="file"
-             value="config/checkstyle-resources-suppressions.xml"/>
+             value=value="C:/Users/habte/OneDrive/Desktop/cpts-422/checkstyle/config/checkstyle-resources-suppressions.xml"/>
   </module>
   <module name="FileTabCharacter"/>
   <module name="RegexpSingleline">
